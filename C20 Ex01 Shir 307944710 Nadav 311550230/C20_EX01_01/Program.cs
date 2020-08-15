@@ -10,7 +10,6 @@ namespace C20_EX01_01
     {
         static void Main()
         {
-
         }
     }
 }
