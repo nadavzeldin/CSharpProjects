@@ -1,0 +1,10 @@
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_EX01_01.exe.config
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_EX01_01.exe
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_EX01_01.pdb
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_Ex01_02.exe
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_Ex01_02.pdb
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\bin\Debug\C20_Ex01_02.exe.config
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\obj\Debug\C20_EX01_01.csprojAssemblyReference.cache
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\obj\Debug\C20_EX01_01.csproj.CopyComplete
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\obj\Debug\C20_EX01_01.exe
+C:\Users\נדב זלדין\Documents\GitHub\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_EX01_01\obj\Debug\C20_EX01_01.pdb
