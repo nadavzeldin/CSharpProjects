@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A07010E5-3963-4752-98D5-3B5F423AD4B7}</ProjectGuid>
+    <ProjectGuid>{220A2231-89C3-4213-B6D1-ACF5D8820112}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>C20_EX01_01</RootNamespace>
-    <AssemblyName>C20_EX01_01</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>Ex01_03</RootNamespace>
+    <AssemblyName>Ex01_03</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -34,6 +34,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C20_Ex01_02\C20_Ex01_02.csproj">
+      <Project>{7587c397-a889-4f7f-8509-bdc114570f05}</Project>
+      <Name>C20_Ex01_02</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
