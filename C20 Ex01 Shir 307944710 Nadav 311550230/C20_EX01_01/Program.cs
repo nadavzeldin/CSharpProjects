@@ -8,77 +8,56 @@ namespace C20_EX01_01
 {
     class Program
     {
-        //convert binary to decimal
-        //statistics - average 0,1 | how many of bins are power of 2 | how many in dec form are increasing series | dec average 
         public static void Main()
         {
-            Console.WriteLine("Please insert first binary number");
-            String bin1 = Console.ReadLine();
-            while (!BinaryInputValidation(bin1))
+            int averageDecimalValue = 0;
+            int increasingSeries = 0;
+            int numberOfPowerOfTwo = 0;
+            String binary = null;
+            int currentDecimal = 0;
+            StringBuilder userInput = new StringBuilder();
+            Console.WriteLine("Please insert four binary number");
+            binary = UserInput(binary, userInput);
+
+            for(int i = 0; i < binary.Length; i += 8)
             {
-                Console.WriteLine("Please insert binary number");
-                bin1 = Console.ReadLine();
-            }
-            int bin1Decimal = BinaryToDecimal(bin1);
-
-
-            Console.WriteLine("Please insert second binary number");
-            String bin2 = Console.ReadLine();
-            while (!BinaryInputValidation(bin2))
-            {
-                Console.WriteLine("Please insert binary number");
-                bin2 = Console.ReadLine();
-            }
-            int bin2Decimal = BinaryToDecimal(bin2);
-
-
-            Console.WriteLine("Please insert third binary number");
-            String bin3 = Console.ReadLine();
-            while (!BinaryInputValidation(bin3))
-            {
-                Console.WriteLine("Please insert binary number");
-                bin3 = Console.ReadLine();
-            }
-            int bin3Decimal = BinaryToDecimal(bin3);
-
-
-            Console.WriteLine("Please insert fourth binary number");
-            String bin4 = Console.ReadLine();
-            while (!BinaryInputValidation(bin4))
-            {
-                Console.WriteLine("Please insert binary number");
-                bin4 = Console.ReadLine();
-            }
-            int bin4Decimal = BinaryToDecimal(bin4);
-
-            //Printing results
-            Console.WriteLine("The numbers are : " +bin1Decimal + " " + bin2Decimal + " " + bin3Decimal + " " + bin4Decimal + " ");
-
-                int numberOfPowerOfTwo =0;
-                if(PowerOfTwo(bin1Decimal))
+                int binaryNumber = int.Parse(binary.Substring(i, 8));
+                currentDecimal = BinaryToDecimal(binaryNumber);
+                averageDecimalValue += currentDecimal;
+                if (PowerOfTwo(binaryNumber))
+                {
                     numberOfPowerOfTwo++;
-                if (PowerOfTwo(bin2Decimal))
-                    numberOfPowerOfTwo++;
-                if (PowerOfTwo(bin3Decimal))
-                    numberOfPowerOfTwo++;
-                if (PowerOfTwo(bin4Decimal))
-                    numberOfPowerOfTwo++;
-            
+                }
+
+                if(IncreasingSerie(currentDecimal))
+                {
+                    increasingSeries++;
+                }
+            }
+
+            AverageOfZeroVsOnes(binary);
             Console.WriteLine("There are " + numberOfPowerOfTwo + " in the power of two");
+            Console.WriteLine("There are " + increasingSeries + " increasing series");
+            Console.WriteLine("Average decimal value is: " + averageDecimalValue/4);
 
+          
+        }
 
-            int IncreasingSeries = 0;
-            if (IncreasingSerie(bin1Decimal))
-                IncreasingSeries++;
-            if (IncreasingSerie(bin2Decimal))
-                IncreasingSeries++;
-            if (IncreasingSerie(bin3Decimal))
-                IncreasingSeries++;
-            if (IncreasingSerie(bin4Decimal))
-                IncreasingSeries++;
-            Console.WriteLine("There are " + IncreasingSeries + " increasing series");
+        private static string UserInput(string i_Binary, StringBuilder i_UserInput)
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                i_Binary = Console.ReadLine();
+                while(!BinaryInputValidation(i_Binary))
+                {
+                    Console.WriteLine("Please insert binary number");
+                    i_Binary = Console.ReadLine();
+                }
 
-            Console.WriteLine("Average (decimal) " + (bin1Decimal + bin2Decimal  + bin3Decimal + bin4Decimal)/4 );
+                i_UserInput.Append(i_Binary);
+            }
+
+            return i_UserInput.ToString();
         }
 
         public static bool BinaryInputValidation(String i_BinaryInput)
@@ -103,21 +82,23 @@ namespace C20_EX01_01
             return true;
         }
 
-        public static int BinaryToDecimal(String i_BinaryInput)
+        public static int BinaryToDecimal(int i_BinaryInput)
         {
-            int binaryNumber = int.Parse(i_BinaryInput);
-            int decimalValue = 0;
-            // initializing base1 value to 1, i.e 2^0 
-            int base1 = 1;
+          
+                int decimalValue = 0;
+                // initializing base1 value to 1, i.e 2^0 
+                int base1 = 1;
 
-            while (binaryNumber > 0)
-            {
-                int reminder = binaryNumber % 10;
-                binaryNumber = binaryNumber / 10;
-                decimalValue += reminder * base1;
-                base1 = base1 * 2;
-            }
-            return decimalValue;
+                while (i_BinaryInput > 0)
+                {
+                    int reminder = i_BinaryInput % 10;
+                    i_BinaryInput = i_BinaryInput / 10;
+                    decimalValue += reminder * base1;
+                    base1 = base1 * 2;
+                }
+                Console.WriteLine(decimalValue);
+                return decimalValue;
+
         }
 
         public static void AverageOfZeroVsOnes(String i_BinaryInput)
@@ -125,7 +106,7 @@ namespace C20_EX01_01
             int zeroAverage = 0;
             int oneAverage = 0;
 
-            for(int i = 0; i < 8; i++)
+            for(int i = 0; i < i_BinaryInput.Length; i++)
             {
                 if(i_BinaryInput[i] == '0')
                 {
@@ -136,7 +117,9 @@ namespace C20_EX01_01
                     oneAverage++;
                 }
             }
-            Console.WriteLine("Average Zeros: " + zeroAverage + "Average Ones: " + oneAverage);
+
+            Console.WriteLine("Average Zeros: " + zeroAverage / 4);
+            Console.WriteLine("Average Ones: "  + oneAverage  / 4);
         }
 
         public static bool PowerOfTwo(int i_Decimal)
