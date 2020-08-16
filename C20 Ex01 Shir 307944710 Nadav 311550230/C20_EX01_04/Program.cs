@@ -10,6 +10,11 @@ namespace C20_EX01_04
     {
         public static void Main()
         {
+            stringAnalysis();
+        }
+
+        private static void stringAnalysis()
+        {
             bool isPalindromeIsEnglish = false;
             bool isPalindromeANumber = false;
             bool lengthIsnt12Digits = true;
@@ -19,12 +24,12 @@ namespace C20_EX01_04
             int numberOfSmallLetter = 0;
             long result;
 
-            while (lengthIsnt12Digits)
+            while(lengthIsnt12Digits)
             {
-                if(palindrome.Length == 12 && (long.TryParse(palindrome, out result) || onlyEnglish(palindrome, ref numberOfSmallLetter)))
+                if(palindrome.Length == 12
+                   && (long.TryParse(palindrome, out result) || onlyEnglish(palindrome, ref numberOfSmallLetter)))
                 {
                     lengthIsnt12Digits = false;
-
                 }
                 else
                 {
@@ -37,7 +42,6 @@ namespace C20_EX01_04
             if(isPalindrom)
             {
                 Console.WriteLine(palindrome + ", is a palindrome");
-
             }
 
             else
@@ -53,7 +57,7 @@ namespace C20_EX01_04
 
                 bool isDivedByThree;
                 long paldindromReminder = long.Parse(palindrome) % 3;
-                if (paldindromReminder == 0)
+                if(paldindromReminder == 0)
                 {
                     Console.WriteLine("Palindrome is divided by 3 without reminder");
                 }
@@ -68,13 +72,9 @@ namespace C20_EX01_04
             isPalindromeIsEnglish = onlyEnglish(palindrome, ref numberOfSmallLetter);
             if(isPalindromeIsEnglish && isPalindrom)
             {
-                Console.WriteLine("Palindrome is english letter");
+                Console.WriteLine("Palindrome is in english letters");
                 Console.WriteLine("Contains " + numberOfSmallLetter + " of small letters");
             }
-
-        
-
-            
         }
 
         public static bool isPalindrom(string i_Palindrom )

@@ -10,11 +10,16 @@ namespace C20_EX01_01
     {
         public static void Main()
         {
+            BinaryQueries();
+        }
+
+        public static void BinaryQueries()
+        {
             int averageDecimalValue = 0;
             int increasingSeries = 0;
             int numberOfPowerOfTwo = 0;
-            String binary = null;
             int currentDecimal = 0;
+            String binary = null;
             StringBuilder userInput = new StringBuilder();
             Console.WriteLine("Please insert four binary number");
             binary = UserInput(binary, userInput);
@@ -24,7 +29,7 @@ namespace C20_EX01_01
                 int binaryNumber = int.Parse(binary.Substring(i, 8));
                 currentDecimal = BinaryToDecimal(binaryNumber);
                 averageDecimalValue += currentDecimal;
-                if (PowerOfTwo(binaryNumber))
+                if(PowerOfTwo(binaryNumber))
                 {
                     numberOfPowerOfTwo++;
                 }
@@ -38,9 +43,7 @@ namespace C20_EX01_01
             AverageOfZeroVsOnes(binary);
             Console.WriteLine("There are " + numberOfPowerOfTwo + " in the power of two");
             Console.WriteLine("There are " + increasingSeries + " increasing series");
-            Console.WriteLine("Average decimal value is: " + averageDecimalValue/4);
-
-          
+            Console.WriteLine("Average decimal value is: " + averageDecimalValue / 4);
         }
 
         private static string UserInput(string i_Binary, StringBuilder i_UserInput)
