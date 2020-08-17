@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace C20_EX01_04
 {
@@ -17,19 +13,20 @@ namespace C20_EX01_04
         {
             bool isPalindromeIsEnglish = false;
             bool isPalindromeANumber = false;
-            bool lengthIsnt12Digits = true;
+            bool lengthIs12Digits = false;
             bool isPalindrom = false;
             Console.WriteLine("Please insert 12 digit palindrome without mix of letter and digits");
             string palindrome = Console.ReadLine();
             int numberOfSmallLetter = 0;
-            long result;
+            long result =0;
 
-            while(lengthIsnt12Digits)
+            while(lengthIs12Digits ==false)
             {
+                //check if palindrome is 12 char length, and is all digits OR all english chars
                 if(palindrome.Length == 12
-                   && (long.TryParse(palindrome, out result) || onlyEnglish(palindrome, ref numberOfSmallLetter)))
+                   && (long.TryParse(palindrome, out result) || OnlyEnglish(palindrome, ref numberOfSmallLetter)))
                 {
-                    lengthIsnt12Digits = false;
+                    lengthIs12Digits = true;
                 }
                 else
                 {
@@ -38,8 +35,8 @@ namespace C20_EX01_04
                 }
             }
 
-            //isPalindrom = Program.isPalindrom(palindrome);
-            Program.isItPalindrom(palindrome,ref isPalindrom);
+            IsItPalindrom(palindrome,ref isPalindrom);
+
             if (isPalindrom)
             {
                 Console.WriteLine(palindrome + ", is a palindrome");
@@ -56,7 +53,7 @@ namespace C20_EX01_04
             {
                 Console.WriteLine("Palindrome is a number");
 
-                bool isDivedByThree;
+                bool isDivedByThree = true;
                 long paldindromReminder = long.Parse(palindrome) % 3;
                 if(paldindromReminder == 0)
                 {
@@ -70,7 +67,8 @@ namespace C20_EX01_04
 
             //test if palindrome contains only english letters
             numberOfSmallLetter = 0;
-            isPalindromeIsEnglish = onlyEnglish(palindrome, ref numberOfSmallLetter);
+            isPalindromeIsEnglish = OnlyEnglish(palindrome, ref numberOfSmallLetter);
+
             if(isPalindromeIsEnglish && isPalindrom)
             {
                 Console.WriteLine("Palindrome is in english letters");
@@ -78,7 +76,7 @@ namespace C20_EX01_04
             }
         }
 
-        public static void isItPalindrom(string i_Palindrom, ref bool i_isPalindrom )
+        public static void IsItPalindrom(string i_Palindrom, ref bool i_isPalindrom )
         {
 
             if(i_Palindrom.Length <= 1)
@@ -94,11 +92,11 @@ namespace C20_EX01_04
 
             else
             {
-                isItPalindrom(i_Palindrom.Substring(1, i_Palindrom.Length - 2), ref i_isPalindrom);
+                IsItPalindrom(i_Palindrom.Substring(1, i_Palindrom.Length - 2), ref i_isPalindrom);
             }
         }
 
-        public static bool onlyEnglish(string i_Palindrom, ref int  i_NumberOfSmallLetters)
+        public static bool OnlyEnglish(string i_Palindrom, ref int  i_NumberOfSmallLetters)
         {
             bool onlyEnglishResult = true;
             for(int i = 0; i < i_Palindrom.Length; i++)

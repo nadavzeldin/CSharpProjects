@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace C20_EX01_01
 {
@@ -19,17 +17,21 @@ namespace C20_EX01_01
             int increasingSeries = 0;
             int numberOfPowerOfTwo = 0;
             int currentDecimal = 0;
-            String binary = null;
+            String binaryUserInput = null;
             StringBuilder userInput = new StringBuilder();
-            Console.WriteLine("Please insert four binary number");
-            binary = UserInput(binary, userInput);
 
-            for(int i = 0; i < binary.Length; i += 8)
+            //receive user binary inputs
+            Console.WriteLine("Please insert four binary number");
+            binaryUserInput = UserInput(userInput);
+
+            //for each binary value analyze and print required information
+            for(int i = 0; i < binaryUserInput.Length; i+= 8)
             {
-                int binaryNumber = int.Parse(binary.Substring(i, 8));
+                int binaryNumber = int.Parse(binaryUserInput.Substring(i, 8));
                 currentDecimal = BinaryToDecimal(binaryNumber);
                 averageDecimalValue += currentDecimal;
-                if(PowerOfTwo(binaryNumber))
+                
+                if(PowerOfTwo(currentDecimal))
                 {
                     numberOfPowerOfTwo++;
                 }
@@ -40,26 +42,30 @@ namespace C20_EX01_01
                 }
             }
 
-            AverageOfZeroVsOnes(binary);
+            AverageOfZeroVsOnes(binaryUserInput);
+
             String powerOfTwoText = String.Format("There are {0} in the power of two", numberOfPowerOfTwo);
             Console.WriteLine(powerOfTwoText);
+
             String increasingSeriesText = String.Format("There are {0} increasing series", increasingSeries);
             Console.WriteLine(increasingSeriesText);
+
             Console.WriteLine("Average decimal value is: " + averageDecimalValue / 4);
         }
 
-        public static string UserInput(string i_Binary, StringBuilder i_UserInput)
+        public static string UserInput(StringBuilder i_UserInput)
         {
-            for(int i = 0; i < 4; i++)
+            string binaryInput;
+            for (int i = 0; i < 4; i++)
             {
-                i_Binary = Console.ReadLine();
-                while(!BinaryInputValidation(i_Binary))
+                binaryInput = Console.ReadLine();
+                while(!BinaryInputValidation(binaryInput))
                 {
                     Console.WriteLine("Please insert binary number");
-                    i_Binary = Console.ReadLine();
+                    binaryInput = Console.ReadLine();
                 }
 
-                i_UserInput.Append(i_Binary);
+                i_UserInput.Append(binaryInput);
             }
 
             return i_UserInput.ToString();
@@ -69,6 +75,7 @@ namespace C20_EX01_01
         {
             bool binaryContainValidDigits = true;
             bool binaryInputValidationResult = true;
+
             //length validation
             if (i_BinaryInput.Length != 8)
             {
@@ -77,7 +84,7 @@ namespace C20_EX01_01
             }
 
             //char validation
-            for (int i = 0; i < i_BinaryInput.Length; i++)
+            for(int i = 0; i < i_BinaryInput.Length; i++)
             {
                 char binaryInputAtIndex = i_BinaryInput[i];
                 if (binaryInputAtIndex != '0' && i_BinaryInput[i] != '1')
@@ -87,7 +94,7 @@ namespace C20_EX01_01
                 }
             }
 
-            if(binaryContainValidDigits ==false)
+            if(binaryContainValidDigits == false)
             {
                 Console.WriteLine("binary can have only '0' and '1' ");
             }
@@ -108,6 +115,7 @@ namespace C20_EX01_01
                     decimalValue += reminder * base1;
                     base1 = base1 * 2;
                 }
+
                 Console.WriteLine(decimalValue);
                 return decimalValue;
 
@@ -148,6 +156,7 @@ namespace C20_EX01_01
 
                 i_Decimal /= 2;
             }
+
             return powerOfTwoResult;
         }
 
