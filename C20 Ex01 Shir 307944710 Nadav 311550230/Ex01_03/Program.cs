@@ -5,24 +5,26 @@ namespace Ex01_03
 {
     class Program
     {
-        public static int o_numberOfAstricks;
         public static void Main()
         {
-            getNumberOfAstricks();
-            printSandGlass(o_numberOfAstricks);
+            int o_numberOfAstricks;
+
+            o_numberOfAstricks = GetNumberOfAstricks();
+            PrintSandGlass(o_numberOfAstricks);
         }
 
-        public static void getNumberOfAstricks()
+        public static int GetNumberOfAstricks()
         {
-            String i_inputFromTheUser;
+            int o_numberOfAstricks;
+            String inputFromTheUser;
             Boolean isEvenNumber;
 
             Console.WriteLine("Please enter the number of lines for the Sand Glass: ");
-            i_inputFromTheUser = Console.ReadLine();
-            while(int.TryParse(i_inputFromTheUser, out o_numberOfAstricks) == false)
+            inputFromTheUser = Console.ReadLine();
+            while(int.TryParse(inputFromTheUser, out o_numberOfAstricks) == false)
             {
                 Console.WriteLine("Invalid input, please enter an integer");
-                i_inputFromTheUser = Console.ReadLine();
+                inputFromTheUser = Console.ReadLine();
             }
 
             isEvenNumber = o_numberOfAstricks % 2 == 0;
@@ -30,6 +32,7 @@ namespace Ex01_03
             {
                 o_numberOfAstricks += 1;
             }
+            return o_numberOfAstricks;
         }
     }
 }

@@ -1,0 +1,7 @@
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\bin\Debug\C20_Ex01_06.exe.config
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\bin\Debug\C20_Ex01_06.exe
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\bin\Debug\C20_Ex01_06.pdb
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\obj\Debug\C20_Ex01_05.csprojAssemblyReference.cache
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\obj\Debug\C20_Ex01_05.csproj.CoreCompileInputs.cache
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\obj\Debug\C20_Ex01_06.exe
+C:\Users\shush\Source\Repos\CSharpProjects\C20 Ex01 Shir 307944710 Nadav 311550230\C20_Ex01_06\obj\Debug\C20_Ex01_06.pdb

@@ -1,44 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace C20_Ex01_02
 {
     public class Program
     {
-        public static Boolean isTheEnd = false;
-        public static int numberOfAstricks = 5;
-        public static int numberOfSpaces = 0;
+        public static Boolean s_isTheEnd = false;
+        public static int s_numberOfAstricks = 5;
+        public static int s_numberOfSpaces = 0;
 
         public static void Main()
         {
-            printSandGlass(numberOfAstricks);
+            PrintSandGlass(s_numberOfAstricks);
         }
 
-        public static void printSandGlass(int i_numberOfAstricks)
+        public static void PrintSandGlass(int i_numberOfAstricks)
         {
-            numberOfAstricks = i_numberOfAstricks;
-            printALineOfAstricksRec(numberOfAstricks, numberOfSpaces);
+            s_numberOfAstricks = i_numberOfAstricks;
+            PrintALineOfAstricksRec(s_numberOfAstricks, s_numberOfSpaces);
         }
 
-        public static void printALineOfAstricksRec(int i_numberOfAstricks, int i_numberOfSpaces)
+        public static void PrintALineOfAstricksRec(int i_numberOfAstricks, int i_numberOfSpaces)
         {
             StringBuilder stringToPrint = new StringBuilder("");
+            Boolean isNumberOfAstricksIsOne = false;
 
-            if (i_numberOfAstricks <=1)
+            isNumberOfAstricksIsOne = i_numberOfAstricks == 1;
+            if (isNumberOfAstricksIsOne == true)
             {
-                if(i_numberOfAstricks == 1)
-                {
-                    stringToPrint.Append(new String(' ', i_numberOfSpaces));
-                    stringToPrint.Append("*");
-                    Console.WriteLine(stringToPrint);
-                }
-                isTheEnd = true;
+                stringToPrint.Append(new String(' ', i_numberOfSpaces));
+                stringToPrint.Append("*");
+                Console.WriteLine(stringToPrint);
+                s_isTheEnd = true;
             }
 
-            if(isTheEnd == true)
+            if(s_isTheEnd == true)
             {
                 return;
             }
@@ -46,7 +42,7 @@ namespace C20_Ex01_02
             stringToPrint.Append(new String(' ', i_numberOfSpaces));
             stringToPrint.Append(new String('*', i_numberOfAstricks));
             Console.WriteLine(stringToPrint);
-            printALineOfAstricksRec(i_numberOfAstricks - 2, i_numberOfSpaces + 1);
+            PrintALineOfAstricksRec(i_numberOfAstricks - 2, i_numberOfSpaces + 1);
             Console.WriteLine(stringToPrint);
         }
     }
