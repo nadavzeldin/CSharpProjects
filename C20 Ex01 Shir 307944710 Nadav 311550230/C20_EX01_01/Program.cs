@@ -41,8 +41,10 @@ namespace C20_EX01_01
             }
 
             AverageOfZeroVsOnes(binary);
-            Console.WriteLine("There are " + numberOfPowerOfTwo + " in the power of two");
-            Console.WriteLine("There are " + increasingSeries + " increasing series");
+            String powerOfTwoText = String.Format("There are {0} in the power of two", numberOfPowerOfTwo);
+            Console.WriteLine(powerOfTwoText);
+            String increasingSeriesText = String.Format("There are {0} increasing series", increasingSeries);
+            Console.WriteLine(increasingSeriesText);
             Console.WriteLine("Average decimal value is: " + averageDecimalValue / 4);
         }
 
