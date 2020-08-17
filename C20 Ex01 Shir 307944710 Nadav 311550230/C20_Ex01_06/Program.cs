@@ -89,16 +89,19 @@ namespace C20_Ex01_06
             StringBuilder stringToPrint = new StringBuilder("The maximum digit is: ");
             stringToPrint.Append(maxDigit);
             Console.WriteLine(stringToPrint);
+
             //Print min digit
             stringToPrint.Clear();
             stringToPrint.Append("The minimum digit is: ");
             stringToPrint.Append(minDigit);
             Console.WriteLine(stringToPrint);
+
             //Print the amount of digits of the original input that can be divided by four
             stringToPrint.Clear();
             stringToPrint.Append("The amount of digits that can be divided by four is: ");
             stringToPrint.Append(numOfDigsThatCanBeDividedByFour);
             Console.WriteLine(stringToPrint);
+
             //Print the amount of digits that are larger than the units digit of the original input
             stringToPrint.Clear();
             stringToPrint.Append("The amount of ditits that are larger than the units digit is: ");

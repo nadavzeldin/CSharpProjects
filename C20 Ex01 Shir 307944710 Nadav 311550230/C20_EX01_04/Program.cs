@@ -19,7 +19,7 @@ namespace C20_EX01_04
             bool isPalindromeANumber = false;
             bool lengthIsnt12Digits = true;
             bool isPalindrom = false;
-            Console.WriteLine("Please insert 12 digit palindrome");
+            Console.WriteLine("Please insert 12 digit palindrome without mix of letter and digits");
             string palindrome = Console.ReadLine();
             int numberOfSmallLetter = 0;
             long result;
@@ -33,13 +33,14 @@ namespace C20_EX01_04
                 }
                 else
                 {
-                    Console.WriteLine("Please insert 12 digit palindrome");
+                    Console.WriteLine("Please insert 12 digit palindrome without mix of letter and digits");
                     palindrome = Console.ReadLine();
                 }
             }
 
-            isPalindrom = Program.isPalindrom(palindrome);
-            if(isPalindrom)
+            //isPalindrom = Program.isPalindrom(palindrome);
+            Program.isItPalindrom(palindrome,ref isPalindrom);
+            if (isPalindrom)
             {
                 Console.WriteLine(palindrome + ", is a palindrome");
             }
@@ -77,32 +78,35 @@ namespace C20_EX01_04
             }
         }
 
-        public static bool isPalindrom(string i_Palindrom )
+        public static void isItPalindrom(string i_Palindrom, ref bool i_isPalindrom )
         {
+
             if(i_Palindrom.Length <= 1)
             {
-                return true;
+                i_isPalindrom = true;
+                return;
             }
 
             if(i_Palindrom[0] != i_Palindrom[i_Palindrom.Length-1])
             {
-                return false;
+                i_isPalindrom = false;
             }
 
             else
             {
-                return isPalindrom(i_Palindrom.Substring(1, i_Palindrom.Length - 2));
+                isItPalindrom(i_Palindrom.Substring(1, i_Palindrom.Length - 2), ref i_isPalindrom);
             }
         }
 
         public static bool onlyEnglish(string i_Palindrom, ref int  i_NumberOfSmallLetters)
         {
+            bool onlyEnglishResult = true;
             for(int i = 0; i < i_Palindrom.Length; i++)
             {
                 char currentIndex = i_Palindrom[i];
                 if(currentIndex<'A' || currentIndex > 'z')
                 {
-                    return false;
+                    onlyEnglishResult = false;
                 }
 
                 if(currentIndex >= 'a' && currentIndex <= 'z')
@@ -110,7 +114,7 @@ namespace C20_EX01_04
                     i_NumberOfSmallLetters++;
                 }
             }
-            return true;
+            return onlyEnglishResult;
         }
     }
 

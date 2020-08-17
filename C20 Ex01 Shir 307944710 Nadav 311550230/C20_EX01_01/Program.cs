@@ -41,12 +41,14 @@ namespace C20_EX01_01
             }
 
             AverageOfZeroVsOnes(binary);
-            Console.WriteLine("There are " + numberOfPowerOfTwo + " in the power of two");
-            Console.WriteLine("There are " + increasingSeries + " increasing series");
+            String powerOfTwoText = String.Format("There are {0} in the power of two", numberOfPowerOfTwo);
+            Console.WriteLine(powerOfTwoText);
+            String increasingSeriesText = String.Format("There are {0} increasing series", increasingSeries);
+            Console.WriteLine(increasingSeriesText);
             Console.WriteLine("Average decimal value is: " + averageDecimalValue / 4);
         }
 
-        private static string UserInput(string i_Binary, StringBuilder i_UserInput)
+        public static string UserInput(string i_Binary, StringBuilder i_UserInput)
         {
             for(int i = 0; i < 4; i++)
             {
@@ -65,11 +67,13 @@ namespace C20_EX01_01
 
         public static bool BinaryInputValidation(String i_BinaryInput)
         {
+            bool binaryContainValidDigits = true;
+            bool binaryInputValidationResult = true;
             //length validation
             if (i_BinaryInput.Length != 8)
             {
                 Console.WriteLine("binary need to be 8 digits");
-                return false;
+                binaryInputValidationResult= false;
             }
 
             //char validation
@@ -78,11 +82,16 @@ namespace C20_EX01_01
                 char binaryInputAtIndex = i_BinaryInput[i];
                 if (binaryInputAtIndex != '0' && i_BinaryInput[i] != '1')
                 {
-                    Console.WriteLine("binary can have only '0' and '1' ");
-                    return false;
+                    binaryInputValidationResult= false;
+                    binaryContainValidDigits = false;
                 }
             }
-            return true;
+
+            if(binaryContainValidDigits ==false)
+            {
+                Console.WriteLine("binary can have only '0' and '1' ");
+            }
+            return binaryInputValidationResult;
         }
 
         public static int BinaryToDecimal(int i_BinaryInput)
@@ -127,22 +136,24 @@ namespace C20_EX01_01
 
         public static bool PowerOfTwo(int i_Decimal)
         {
+            bool powerOfTwoResult = true;
             int reminder =0;
             while(i_Decimal > 1)
             {
                 reminder = i_Decimal % 2;
                 if(reminder != 0)
                 {
-                    return false;
+                    powerOfTwoResult= false;
                 }
 
                 i_Decimal /= 2;
             }
-            return true;
+            return powerOfTwoResult;
         }
 
         public static bool IncreasingSerie(int i_Decimal)
         {
+            bool increasingSerieResult = true;
             int currentIndexValue;
             int previousIndexValue;
 
@@ -153,10 +164,10 @@ namespace C20_EX01_01
                 previousIndexValue = i_Decimal % 10;
                 if(currentIndexValue <= previousIndexValue)
                 {
-                    return false;
+                    increasingSerieResult = false;
                 }
             }
-            return true;
+            return increasingSerieResult;
         }
     }
 
